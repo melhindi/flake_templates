@@ -1,7 +1,7 @@
 {
   description = "LaTeX development shell";
 
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
   inputs.nixcats.url = "github:melhindi/nixcats";
   inputs.nixcats.inputs.nixpkgs.follows = "nixpkgs";
 
