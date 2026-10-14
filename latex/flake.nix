@@ -14,16 +14,10 @@
     let
       systems = [
         "x86_64-linux"
+        "aarch64-linux"
         "aarch64-darwin"
       ];
-      forAll =
-        f:
-        builtins.listToAttrs (
-          map (system: {
-            name = system;
-            value = f system;
-          }) systems
-        );
+      forAll = nixpkgs.lib.genAttrs systems;
     in
     {
       devShells = forAll (

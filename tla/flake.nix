@@ -11,16 +11,14 @@
       systems = [
         "x86_64-linux"
         "aarch64-linux"
+        "aarch64-darwin"
       ];
       forAllSystems = lib.genAttrs systems;
     in
     {
       packages = forAllSystems (system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          pkgs = import nixpkgs { inherit system; };
           # Community Modules are published against the newer 1.8.x TLA+ tools.
           # Using the older `pkgs.tlaplus` (1.7.4 in this nixpkgs snapshot)
           # causes runtime linkage failures such as missing `KSubsetValue`.
@@ -137,10 +135,7 @@
 
       devShells = forAllSystems (system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          pkgs = import nixpkgs { inherit system; };
           tlaTools = pkgs.tlaplus18;
         in
         {

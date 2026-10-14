@@ -1,0 +1,10 @@
+.direnv/
+result
+result-*
+
+# Created by the dev shell and the codium launcher
+.nix-tlaplus/
+.nix-vscode/
+
+# TLC output
+states/
