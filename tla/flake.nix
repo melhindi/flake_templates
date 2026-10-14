@@ -25,7 +25,7 @@
           # Using the older `pkgs.tlaplus` (1.7.4 in this nixpkgs snapshot)
           # causes runtime linkage failures such as missing `KSubsetValue`.
           tlaTools = pkgs.tlaplus18;
-          tlaExtensionVersion = "2026.3.120037";
+          tlaExtensionVersion = "2026.10.131655";
           # VSCodium uses Open VSX by default. Pin the VSIX download explicitly
           # so the dev environment stays reproducible and does not rely on a
           # mutable in-editor extension install.
@@ -35,7 +35,7 @@
               version = tlaExtensionVersion;
               src = pkgs.fetchurl {
                 url = "https://open-vsx.org/api/tlaplus/vscode-ide/${tlaExtensionVersion}/file/tlaplus.vscode-ide-${tlaExtensionVersion}.vsix";
-                hash = "sha256-bOMAPtiO797JhylabA3HXT5BUx9/U2W6fkjFwULxyQs=";
+                hash = "sha256-2ASnh3Ci6/5VRgkggkMuPK3KfXr1N8urnn6g6MZGzmY=";
               };
               vscodeExtPublisher = "tlaplus";
               vscodeExtName = "vscode-ide";
@@ -54,12 +54,12 @@
           # Community Modules provide extra TLA+ modules and optional Java
           # implementations used by TLC. Pin the published release so command
           # line model checking stays reproducible.
+          communityModulesVersion = "202610131629";
           communityModulesJar = pkgs.fetchurl {
-            # The project publishes a stable "latest download" URL for the
-            # bundled jar. The fixed hash keeps this flake reproducible and
-            # will fail loudly once upstream publishes a newer release.
-            url = "https://github.com/tlaplus/CommunityModules/releases/latest/download/CommunityModules-deps.jar";
-            hash = "sha256-sHTExQe4S0qS+vuh9UPv52p7vvOgiHc2LH+cltB4tqg=";
+            # Pin a tagged release rather than the mutable "latest download"
+            # URL, which breaks the fixed hash whenever upstream publishes.
+            url = "https://github.com/tlaplus/CommunityModules/releases/download/${communityModulesVersion}/CommunityModules-deps.jar";
+            hash = "sha256-NvFDHViySp6YYU0uVu7ZtM/ToInD8rmG94VyYy7Sgx0=";
           };
           # Extract the TLA+ module sources so the VS Code extension can find
           # them through normal module search paths instead of relying on jar

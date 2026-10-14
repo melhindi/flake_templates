@@ -33,9 +33,8 @@
             inherit system;
             config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "drawio" ];
           };
-          tex = pkgs.texlive.combine {
-            inherit (pkgs.texlive)
-              scheme-small
+          tex = pkgs.texliveSmall.withPackages (
+            ps: with ps; [
               collection-latex
               collection-latexrecommended
               collection-latexextra
@@ -44,8 +43,8 @@
               libertine
               newtx
               inconsolata
-              ;
-          };
+            ]
+          );
           nixcatsNvim = (nixcats.packages.${system}.nixcatsTex or nixcats.packages.${system}.default);
           latexPackages =
             with pkgs;
@@ -53,7 +52,7 @@
               latexrun
               tex
             ]
-            ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ drawio ];
+            ++ pkgs.lib.optionals pkgs.stdenv.hostPlatform.isLinux [ drawio ];
         in
         {
           default = pkgs.mkShell {
