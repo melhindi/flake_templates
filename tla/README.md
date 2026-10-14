@@ -16,6 +16,13 @@ Launch the packaged VSCodium environment:
 nix run .#codium
 ```
 
+If you use `direnv`, create `.envrc` to load the shell automatically:
+
+```bash
+echo 'use flake' > .envrc
+direnv allow
+```
+
 ## Included Tools
 
 - TLA+ tools from nixpkgs

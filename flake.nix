@@ -30,6 +30,13 @@
             ```bash
             nix develop .#nvim
             ```
+
+            If you use `direnv`, create `.envrc` with the shell you want:
+
+            ```bash
+            echo 'use flake' > .envrc
+            direnv allow
+            ```
           '';
         };
 
@@ -49,6 +56,13 @@
 
             ```bash
             nix run .#codium
+            ```
+
+            If you use `direnv`, create `.envrc` to load the shell automatically:
+
+            ```bash
+            echo 'use flake' > .envrc
+            direnv allow
             ```
           '';
         };
@@ -99,6 +113,13 @@
 
             ```bash
             nix develop .#nvim
+            ```
+
+            If you use `direnv`, create `.envrc` with the shell you want:
+
+            ```bash
+            echo 'use flake' > .envrc
+            direnv allow
             ```
           '';
         };

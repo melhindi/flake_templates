@@ -16,6 +16,17 @@ Enter the shell with the configured Neovim package:
 nix develop .#nvim
 ```
 
+If you use `direnv`, create `.envrc` with the shell you want:
+
+```bash
+echo 'use flake' > .envrc
+direnv allow
+```
+
+Use `use flake .#nvim` in `.envrc` for the Neovim-enabled shell.
+
+Editors started from inside the shell use the project's `typst` and `tinymist` instead of their own copies.
+
 ## Included Tools
 
 - `typst`
