@@ -8,6 +8,7 @@ This repository contains personal project templates for `nix flake init`.
 | --- | --- |
 | `latex` | LaTeX development shell with TeX Live tooling. |
 | `tla` | TLA+ development shell with TLC, Community Modules, and VSCodium. |
+| `typst` | Typst development shell with `typst` and `tinymist`. |
 | `zig` | Zig development shell with a selectable Zig/ZLS toolchain. |
 
 ## Usage
@@ -20,6 +21,10 @@ nix flake init --template github:melhindi/flake_templates#latex
 
 ```bash
 nix flake init --template github:melhindi/flake_templates#tla
+```
+
+```bash
+nix flake init --template github:melhindi/flake_templates#typst
 ```
 
 ```bash

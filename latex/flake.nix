@@ -53,7 +53,9 @@
             packages = latexPackages;
             shellHook = ''echo "Latex dev shell ready"'';
           };
-
+        }
+        # nixcats only publishes packages for Linux systems.
+        // nixpkgs.lib.optionalAttrs (nixcats.packages ? ${system}) {
           nvim = pkgs.mkShell {
             packages = latexPackages ++ [ nixcatsNvim ];
             shellHook = ''echo "Latex dev shell ready"'';

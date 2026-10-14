@@ -21,7 +21,7 @@ nix develop .#nvim
 - `latexrun`
 - A curated TeX Live environment with common LaTeX collections and fonts
 - `drawio` on Linux
-- `nixcats` Neovim package in the `nvim` shell
+- `nixcats` Neovim package in the `nvim` shell (Linux only)
 
 ## Building Documents
 

@@ -83,6 +83,26 @@
           '';
         };
 
+        typst = {
+          path = withoutLock "typst-template" ./typst;
+          description = "Typst development shell with typst and tinymist";
+          welcomeText = ''
+            # Typst Development Shell
+
+            Enter the shell with:
+
+            ```bash
+            nix develop
+            ```
+
+            Use the Neovim-enabled shell with:
+
+            ```bash
+            nix develop .#nvim
+            ```
+          '';
+        };
+
         default = self.templates.latex;
       };
     };
